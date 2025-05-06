@@ -16,6 +16,9 @@
     "email": "bunkcode@variablesoftware.com",
     "url": "https://github.com/variablesoftware"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

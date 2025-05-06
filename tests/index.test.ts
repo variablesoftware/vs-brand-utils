@@ -7,7 +7,6 @@ type TestId = Brand<"TestId", string>;
 
 describe("vs-brand-utils: runtime branding", () => {
   it("brands and enforces nominal typing", () => {
-
     const raw = "abc";
     const id = brand<"TestId", string>(raw);
 
@@ -35,7 +34,7 @@ describe("vs-brand-utils: runtime branding", () => {
     // @ts-expect-error: This should error because 456 is not assignable to MyId
     const id2: MyId = 456;
     expect(typeof id).toBe("number");
-  
+
     expect(typeof n).toBe("number");
     expect(typeof id2).toBe("number");
     expect(typeof id).toBe("number");

@@ -38,6 +38,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: yarn install --immutable
+      - run: cat /home/runner/work/_temp/.npmrc
+      - run: echo $NPM_TOKEN
       - run: yarn dlx semantic-release --dry-run
         env:
           NPM_TOKEN: ${{ secrets.npm_token}}

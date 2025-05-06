@@ -5,7 +5,7 @@ permissions:
   issues: write # to be able to comment on released issues
   pull-requests: write # to be able to comment on released pull requests
   id-token: write # to enable use of OIDC for npm provenance
-    
+
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -14,7 +14,7 @@ on:
       - main
 
 jobs:
-  test:
+  test-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: yarn install --immutable
-      - run: yarn dlx semantic-release
+      - run: yarn dlx semantic-release --dry-run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

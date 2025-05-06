@@ -17,8 +17,8 @@ jobs:
           node-version: '18'
           cache: 'npm'
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
-      - run: npm ci
-      - run: npm test
+      - run: yarn install --immutable
+      - run: yarn test
 
   bump-and-publish:
     if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'chore(deps)')

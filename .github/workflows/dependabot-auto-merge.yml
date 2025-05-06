@@ -34,8 +34,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+      # Unexpected input(s) 'foo', valid inputs are ['always-auth', 'node-version', 'node-version-file', 'architecture', 'check-latest', 'registry-url', 'scope', 'token', 'cache', 'cache-dependency-path', 'mirror', 'mirror-token']
         with:
-          foo: 'bar'
+          token: ${{secrets.NPM_TOKEN}}
           always-auth: true
           node-version: '20.8.1'
           registry-url: 'https://registry.npmjs.org/'

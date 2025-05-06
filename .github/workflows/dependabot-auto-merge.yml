@@ -36,6 +36,7 @@ jobs:
       - uses: actions/setup-node@v4
       # Unexpected input(s) 'foo', valid inputs are ['always-auth', 'node-version', 'node-version-file', 'architecture', 'check-latest', 'registry-url', 'scope', 'token', 'cache', 'cache-dependency-path', 'mirror', 'mirror-token']
         with:
+          scope: variablesoftware
           token: ${{secrets.NPM_TOKEN}}
           always-auth: true
           node-version: '20.8.1'
@@ -44,7 +45,7 @@ jobs:
       - run: yarn install --immutable
       - run: cat /home/runner/work/_temp/.npmrc
       - run: yarn add -D husky
-      - run: yarn npm whoami --publish
+      - run: yarn npm whoami --publish --scope variablesoftware
       - run: yarn npm publish --provenance --access public
       - run: yarn dlx semantic-release --dry-run
         env:

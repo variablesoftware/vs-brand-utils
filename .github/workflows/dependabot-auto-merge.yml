@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+      - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: npm ci
       - run: npm test
 
@@ -29,6 +30,7 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org/'
+      - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: npm version patch --no-git-tag-version
       - run: npm publish
         env:

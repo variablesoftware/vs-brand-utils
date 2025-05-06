@@ -41,6 +41,7 @@ jobs:
           always-auth: true
           node-version: '20.8.1'
           registry-url: 'https://registry.npmjs.org/'
+      - run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: yarn install --immutable
       - run: cat /home/runner/work/_temp/.npmrc

@@ -28,7 +28,7 @@ jobs:
 
   bump-and-publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: test
+    needs: test-build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

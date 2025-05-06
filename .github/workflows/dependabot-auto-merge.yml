@@ -18,10 +18,10 @@ jobs:
           cache: 'npm'
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: yarn install --immutable
-      - run: yarn test
+      - run: yarn test:build
 
   bump-and-publish:
-    if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'chore(deps)')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -31,14 +31,8 @@ jobs:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org/'
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
-      - run: npm version patch --no-git-tag-version
-      - run: npm publish
+      - run: yarn install --immutable
+      - run: yarn dlx semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Commit bumped version
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json || true
-          git commit -m "chore(release): bump version [skip ci]" || true
-          git push
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

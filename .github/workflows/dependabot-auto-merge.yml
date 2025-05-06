@@ -57,7 +57,7 @@ jobs:
       - run: yarn npm publish --provenance --access public
       - run: yarn dlx semantic-release --dry-run
         env:
-          SCOPE: ${{secrets.scope}}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN}}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SCOPE: ${{secrets.scope}}
+          NODE_AUTH_TOKEN: ${{ secrets.VS_NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.VS_NPM_TOKEN}}

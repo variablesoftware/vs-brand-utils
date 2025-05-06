@@ -39,8 +39,8 @@ jobs:
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: yarn install --immutable
       - run: cat /home/runner/work/_temp/.npmrc
-      - run: echo $NPM_TOKEN
       - run: yarn dlx semantic-release --dry-run
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token}}
           NPM_TOKEN: ${{ secrets.npm_token}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -53,7 +53,7 @@ jobs:
       - run: yarn install --immutable
       - run: cat /home/runner/work/_temp/.npmrc
       - run: yarn add -D husky
-      - run: yarn npm whoami --scope ${SCOPE} --publish 
+      - run: yarn npm whoami --scope ${{secrets.scope}} --publish 
       - run: yarn npm publish --access public
       - run: yarn npm publish --provenance --access public
       - run: yarn semantic-release --dry-run

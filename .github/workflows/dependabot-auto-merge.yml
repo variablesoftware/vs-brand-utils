@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.8.1"
+          node-version: "lts/*"
           cache: "npm"
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: yarn install --immutable
@@ -40,9 +40,9 @@ jobs:
       - uses: actions/setup-node@v4
       # Unexpected input(s) 'foo', valid inputs are ['always-auth', 'node-version', 'node-version-file', 'architecture', 'check-latest', 'registry-url', 'scope', 'token', 'cache', 'cache-dependency-path', 'mirror', 'mirror-token']
         with:
-          #always-auth: true
+          always-auth: true
           check-latest: true
-          node-version: '20.8.1'
+          node-version: 'lts/*'
           registry-url: 'https://registry.npmjs.org/'
           #scope: ${SCOPE}
           #token: ${NPM_TOKEN}

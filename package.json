@@ -1,6 +1,6 @@
 {
   "name": "@variablesoftware/vs-brand-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "🛡️🧩🏷️ Nominal (branded) TypeScript types & helpers for opaque types.",
   "keywords": [
     "typescript",
@@ -46,6 +46,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:watch": "tsc --watch",
     "clean": "rm -rf dist",
     "clean:all": "rm -rf dist && git tag -d $(git tag)",
     "dev": "vitest watch",

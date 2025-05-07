@@ -47,6 +47,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           #scope: ${SCOPE}
           #token: ${NPM_TOKEN}
+          token: ${{secrets.VS_NPM_TOKEN}}
       #- run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
       #- run: npm install --global corepack@latest
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate

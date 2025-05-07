@@ -46,17 +46,17 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           #scope: ${SCOPE}
           #token: ${NPM_TOKEN}
-      - run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+      #- run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
       #- run: npm install --global corepack@latest
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
-      - run: yarn --version
+      #- run: yarn --version
       - run: yarn install --immutable
       - run: cat /home/runner/work/_temp/.npmrc
-      - run: yarn add -D husky
-      - run: yarn npm whoami --scope ${{secrets.scope}} --publish 
-      - run: yarn npm publish --access public
-      - run: yarn npm publish --provenance --access public
-      - run: yarn semantic-release --dry-run
+      #- run: yarn add -D husky
+      #- run: yarn npm whoami --scope ${{secrets.scope}} --publish 
+      #- run: yarn npm publish --access public
+      #- run: yarn npm publish --provenance --access public
+      #- run: yarn semantic-release --dry-run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SCOPE: ${{secrets.scope}}

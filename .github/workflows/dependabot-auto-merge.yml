@@ -44,8 +44,8 @@ jobs:
           #always-auth: true
           node-version: '20.8.1'
           registry-url: 'https://registry.npmjs.org/'
-          #scope: variablesoftware
-          #token: ${{secrets.NPM_TOKEN}}
+          #scope: ${SCOPE}
+          #token: ${NPM_TOKEN}
       #- run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
       #- run: npm install --global corepack@latest
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
@@ -53,7 +53,8 @@ jobs:
       - run: yarn install --immutable
       #- run: cat /home/runner/work/_temp/.npmrc
       - run: yarn add -D husky
-      - run: yarn npm whoami --scope ${{secrets.scope}} --publish 
+      - run: yarn npm whoami --scope ${SCOPE} --publish 
+      - run: yarn npm publish --access public
       - run: yarn npm publish --provenance --access public
       - run: yarn dlx semantic-release --dry-run
         env:

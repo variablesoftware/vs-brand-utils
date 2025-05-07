@@ -47,7 +47,7 @@ jobs:
           #registry-url: "https://registry.npmjs.org/"
           #scope: ${SCOPE}
           #token: ${NPM_TOKEN}
-          #token: ${{secrets.VS_NPM_TOKEN}}
+          token: ${{secrets.VS_NPM_TOKEN}}
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       #- run: yarn --version
       - run: yarn install --immutable

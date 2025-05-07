@@ -58,7 +58,7 @@ jobs:
         #- run: yarn npm whoami --scope ${{secrets.scope}} --publish
         #- run: yarn npm publish --access public
         #- run: yarn npm publish --provenance --access public
-      - run: yarn semantic-release --dry-run
+      - run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SCOPE: ${{secrets.scope}}

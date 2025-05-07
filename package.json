@@ -62,6 +62,8 @@
     "version:patch": "yarn version patch",
     "version:minor": "yarn version minor",
     "version:major": "yarn version major",
+    "semantic:release":"yarn dlx semantic-release",
+    "semantic:release:dry": "yarn semantic:release --dry-run && yarn release",
     "release": "git push && git push --tags && yarn npm publish --access public"
   },
   "peerDependencies": {

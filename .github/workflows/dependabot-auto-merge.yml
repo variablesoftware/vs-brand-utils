@@ -26,7 +26,8 @@ jobs:
       - run: yarn install --immutable
       - run: yarn test:build
 
-  bump-and-publish:
+# doesn't actually work, yet.
+  bump-and-publish-test:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: test-build
     runs-on: ubuntu-latest

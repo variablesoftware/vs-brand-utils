@@ -1,10 +1,10 @@
 name: Dependabot Auto Test, Bump & Publish
 
 permissions:
-  contents: write # to be able to publish a GitHub release
-  issues: write # to be able to comment on released issues
-  pull-requests: write # to be able to comment on released pull requests
-  id-token: write # to enable use of OIDC for npm provenance
+  contents: read # to be able to publish a GitHub release
+#  issues: write # to be able to comment on released issues
+#  pull-requests: write # to be able to comment on released pull requests
+#  id-token: write # to enable use of OIDC for npm provenance
 
 on:
   pull_request:
@@ -12,7 +12,7 @@ on:
   push:
     branches:
       - main
-
+      - "*.x"
 jobs:
   test-build:
     runs-on: ubuntu-latest
@@ -20,7 +20,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          always-auth: true
           node-version: "20.8.1"
           cache: "npm"
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
@@ -42,16 +41,17 @@ jobs:
       # Unexpected input(s) 'foo', valid inputs are ['always-auth', 'node-version', 'node-version-file', 'architecture', 'check-latest', 'registry-url', 'scope', 'token', 'cache', 'cache-dependency-path', 'mirror', 'mirror-token']
         with:
           #always-auth: true
+          check-latest: true
           node-version: '20.8.1'
           registry-url: 'https://registry.npmjs.org/'
           #scope: ${SCOPE}
           #token: ${NPM_TOKEN}
-      #- run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+      - run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
       #- run: npm install --global corepack@latest
       - run: corepack enable && corepack prepare yarn@4.9.1 --activate
       - run: yarn --version
       - run: yarn install --immutable
-      #- run: cat /home/runner/work/_temp/.npmrc
+      - run: cat /home/runner/work/_temp/.npmrc
       - run: yarn add -D husky
       - run: yarn npm whoami --scope ${SCOPE} --publish 
       - run: yarn npm publish --access public

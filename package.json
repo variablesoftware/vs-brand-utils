@@ -22,11 +22,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/variablesoftware/ts-brand-utils.git"
+    "url": "git+https://github.com/variablesoftware/vs-brand-utils.git"
   },
-  "homepage": "https://github.com/variablesoftware/ts-brand-utils/tree/main/packages/vs-brand-utils#readme",
+  "homepage": "https://github.com/variablesoftware/vs-brand-utils/tree/main/packages/vs-brand-utils#readme",
   "bugs": {
-    "url": "https://github.com/variablesoftware/ts-brand-utils/issues"
+    "url": "https://github.com/variablesoftware/vs-brand-utils/issues"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

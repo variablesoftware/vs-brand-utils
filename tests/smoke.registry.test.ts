@@ -8,7 +8,7 @@ function run(cmd, opts = {}) {
   return execSync(cmd, { stdio: 'inherit', ...opts });
 }
 
-test.skip('npm package can be installed and imported from registry (smoke test)', async () => {
+test('npm package can be installed and imported from registry (smoke test)', async () => {
   // Use a temp directory for the test
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vs-brand-utils-smoke-registry-'));
   const origCwd = process.cwd();

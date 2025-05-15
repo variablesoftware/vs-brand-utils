@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/variablesoftware/vs-brand-utils/issues"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.min.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**",

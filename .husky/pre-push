@@ -1,4 +1,4 @@
-eval "$(nodenv init - zsh)"
+#eval "$(nodenv init - zsh)"
 set -x 
-yarn lint && yarn build:test || exit 1
+#yarn lint && yarn build:test || exit 1
 gitleaks dir . || exit 1

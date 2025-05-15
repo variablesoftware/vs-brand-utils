@@ -1,3 +1,4 @@
+eval "$(nodenv init - zsh)"
 set -x
 yarn lint || exit 1
 gitleaks dir . || exit 1

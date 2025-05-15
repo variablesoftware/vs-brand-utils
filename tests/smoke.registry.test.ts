@@ -10,17 +10,17 @@ function run(cmd, opts = {}) {
 
 test('npm package can be installed and imported from registry (smoke test)', async () => {
   // Use a temp directory for the test
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ts-brand-utils-smoke-registry-'));
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vs-brand-utils-smoke-registry-'));
   const origCwd = process.cwd();
   try {
     process.chdir(tmpDir);
     run('npm init -y');
     // Install the package from the registry (latest version)
-    run('npm install @variablesoftware/ts-brand-utils');
+    run('npm install @variablesoftware/vs-brand-utils');
     // Read the installed package's package.json to find the entry point
-    const pkgJson = JSON.parse(fs.readFileSync(path.join(tmpDir, 'node_modules', '@variablesoftware', 'ts-brand-utils', 'package.json'), 'utf8'));
+    const pkgJson = JSON.parse(fs.readFileSync(path.join(tmpDir, 'node_modules', '@variablesoftware', 'vs-brand-utils', 'package.json'), 'utf8'));
     const entry = pkgJson.main || 'index.js';
-    const entryPath = path.join(tmpDir, 'node_modules', '@variablesoftware', 'ts-brand-utils', entry);
+    const entryPath = path.join(tmpDir, 'node_modules', '@variablesoftware', 'vs-brand-utils', entry);
     await import(entryPath);
     console.log('Smoke test passed: package can be installed and imported from registry.');
   } catch (e) {

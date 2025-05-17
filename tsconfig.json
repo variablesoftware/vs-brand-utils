@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "types": ["vitest"]
+    "types": ["vitest"],
+    "sourceMap": true // Add this line to emit .map files
   }
 }

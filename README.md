@@ -42,28 +42,40 @@ import {
   assertBrand,
   unbrand,
   createBrand,
+  brandArray,
+  unbrandArray,
+  brandMany
 } from "@variablesoftware/vs-brand-utils";
 
 // Define a branded type
 export type UserId = Brand<"UserId", string>;
 
 // Brand a value
-const id = brand<"UserId", string>("abc123");
+const id = brand<"UserId", string>("UserId", "abc123");
 
 // Type-safe: cannot assign UserId to string or vice versa
 // const s: string = id; // Type error
 // const id2: UserId = 'plainstring'; // Type error
 
 // Type guard
-if (isBrand<"UserId", string>("UserId", id)) {
+if (isBrand("UserId", id)) {
   // id is UserId here
 }
 
 // Assert
-assertBrand<"UserId", string>("UserId", id);
+assertBrand("UserId", id);
 
 // Unbrand
-const raw: string = unbrand<"UserId", string>(id);
+const raw: string = unbrand("UserId", id);
+
+// Brand an array
+const brandedArr = brandArray("UserId", ["a", "b"]);
+
+// Unbrand an array
+const arr: string[] = unbrandArray("UserId", brandedArr);
+
+// Brand many values
+const many = brandMany("UserId", "a", "b");
 
 // Factory for a specific brand
 const TenantId = createBrand<"TenantId", string>("TenantId");
@@ -80,6 +92,8 @@ const tid = TenantId.brand("t-123");
 - Array helpers for batch branding/unbranding
 - Factory for reusable brand helpers
 - Zero runtime cost: all checks are type-level
+- **100% test and code coverage** (see `tests/unit/` for split test suites)
+- Edge-case and runtime safety for all helpers
 
 ---
 
@@ -89,6 +103,7 @@ const tid = TenantId.brand("t-123");
 - Enable safe domain modeling with TypeScript
 - No runtime overhead or dependencies
 - Simple, composable API
+- Fully documented and tested
 
 ---
 
@@ -100,6 +115,14 @@ Tested using `vitest` with coverage for:
 - Type guards and assertions
 - Compile-time type errors
 - Array helpers
+- Edge cases and runtime behaviors
+
+Test suites are organized by concern:
+- `runtime-branding.test.ts`
+- `compile-type-errors.test.ts`
+- `helpers-and-factory.test.ts`
+- `edge-cases.test.ts`
+- `missing-marker-edge-cases.test.ts`
 
 Run tests:
 

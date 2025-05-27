@@ -2,7 +2,11 @@
 
 [![Test Suite](https://img.shields.io/badge/tests-passing-brightgreen)](https://github.com/variablesoftware/vs-brand-utils/actions)
 [![NPM version](https://img.shields.io/npm/v/@variablesoftware/vs-brand-utils?style=flat-square)](https://www.npmjs.com/package/@variablesoftware/vs-brand-utils)
-[![License](https://img.shields.io/github/license/variablesoftware/vs-brand-utils?style=flat-square)](https://github.com/variablesoftware/vs-brand-utils/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/variablesoftware/vs-brand-utils?style=flat-square)](https://github.com/variablesoftware/vs-brand-utils/blob/main/LICENSE.txt)
+[![Coverage](https://img.shields.io/coveralls/github/variablesoftware/vs-brand-utils/main)](https://coveralls.io/github/variablesoftware/vs-brand-utils)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@variablesoftware/vs-brand-utils)](https://bundlephobia.com/package/@variablesoftware/vs-brand-utils)
+[![Downloads](https://img.shields.io/npm/dm/@variablesoftware/vs-brand-utils)](https://www.npmjs.com/package/@variablesoftware/vs-brand-utils)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/variablesoftware/vs-brand-utils/pulls)
 
 **Nominal (branded) TypeScript types & helpers for safe opaque types.**
 

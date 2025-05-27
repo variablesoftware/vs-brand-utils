@@ -175,7 +175,7 @@ All helpers are still available via the main package import for convenience.
 Once stable, it will be published as:
 
 ```json
-"@variablesoftware/vs-brand-utils": "^0.1.0"
+"@variablesoftware/vs-brand-utils": "^0.8.0"
 ```
 
 ---

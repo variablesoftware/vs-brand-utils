@@ -38,7 +38,7 @@ function isPrimitive(value: unknown): value is string | number | boolean | symbo
 // Internal wrapper for branded primitives
 interface BrandedPrimitive<K extends string, T> {
   value: T;
-  [BRAND_MARKER]: { [key in K]: true };
+  [BRAND_MARKER]: Record<K, true>;
 }
 
 // Helper type for objects that can have the BRAND_MARKER symbol
@@ -61,7 +61,7 @@ export function brand<K extends string, T>(key: K, value: T): Brand<K, T> {
     // Wrap primitive in an object with brand marker
     const wrapper: BrandedPrimitive<K, T> = {
       value,
-      [BRAND_MARKER]: { [key]: true } as { [k in K]: true },
+      [BRAND_MARKER]: { [key]: true } as Record<K, true>,
     };
     return wrapper as unknown as Brand<K, T>;
   }

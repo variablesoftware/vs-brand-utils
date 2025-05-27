@@ -14,8 +14,6 @@
 
 // Internal symbol for runtime brand marking
 const BRAND_MARKER = Symbol.for('vs-brand-utils:brand');
-// Use a Map for primitive branding: value -> Set of brand keys
-const primitiveBrandMap = new Map<string | number | symbol | boolean | bigint, Set<string>>();
 
 /**
  * Opaque “brand” type: tags T with phantom K so it won’t mix with plain T.
@@ -43,6 +41,12 @@ interface BrandedPrimitive<K extends string, T> {
   [BRAND_MARKER]: { [key in K]: true };
 }
 
+// Helper type for objects that can have the BRAND_MARKER symbol
+interface BrandableObject {
+  [BRAND_MARKER]?: Record<string, boolean>;
+  [key: string]: unknown;
+}
+
 /**
  * Cast a raw value into a Brand. No runtime checks are performed.
  *
@@ -57,14 +61,15 @@ export function brand<K extends string, T>(key: K, value: T): Brand<K, T> {
     // Wrap primitive in an object with brand marker
     const wrapper: BrandedPrimitive<K, T> = {
       value,
-      [BRAND_MARKER]: { [key]: true } as any,
+      [BRAND_MARKER]: { [key]: true } as { [k in K]: true },
     };
     return wrapper as unknown as Brand<K, T>;
   }
   if (typeof value === 'object' && value !== null) {
-    (value as any)[BRAND_MARKER] = (value as any)[BRAND_MARKER] || {};
-    (value as any)[BRAND_MARKER][key] = true;
-    return value as Brand<K, T>;
+    const obj = value as BrandableObject;
+    obj[BRAND_MARKER] = obj[BRAND_MARKER] || {};
+    obj[BRAND_MARKER]![key] = true;
+    return obj as Brand<K, T>;
   }
   return value as unknown as Brand<K, T>;
 }
@@ -87,11 +92,11 @@ export function isBrand<K extends string, T>(
       typeof value === 'object' &&
       value !== null &&
       BRAND_MARKER in value &&
-      Boolean((value as any)[BRAND_MARKER][key])
+      Boolean((value as BrandableObject)[BRAND_MARKER]?.[key])
     );
   }
   if (typeof value === 'object' && value !== null && BRAND_MARKER in value) {
-    return Boolean((value as any)[BRAND_MARKER][key]);
+    return Boolean((value as BrandableObject)[BRAND_MARKER]?.[key]);
   }
   return false;
 }
@@ -123,10 +128,13 @@ export function unbrand<K extends string, T>(key: K, value: Brand<K, T>): T {
   if (typeof value === 'object' && value !== null && BRAND_MARKER in value) {
     if ('value' in value) {
       // Unwrap primitive
-      return (value as any).value as T;
+      return (value as BrandedPrimitive<K, T>).value;
     }
-    delete (value as any)[BRAND_MARKER][key];
-    return value as unknown as T;
+    const obj = value as BrandableObject;
+    if (obj[BRAND_MARKER]) {
+      delete obj[BRAND_MARKER]![key];
+    }
+    return obj as unknown as T;
   }
   return value as unknown as T;
 }

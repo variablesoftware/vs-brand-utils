@@ -109,6 +109,11 @@ describe("vs-brand-utils: helpers and createBrand", () => {
     expect(unbrand(key, undefined as any)).toBe(undefined);
   });
 
+  it("unbrand returns value as-is for primitive branded value (coverage)", () => {
+    // This explicitly covers the fallback branch in unbrand for non-object values
+    expect(unbrand("UserId", 42 as unknown as any)).toBe(42);
+  });
+
   it("unbrandArray returns array of underlying values", () => {
     const arr = [branded, branded];
     expect(unbrandArray(key, arr)).toEqual([raw, raw]);
@@ -193,5 +198,15 @@ describe("vs-brand-utils: helpers and createBrand", () => {
   it("createBrand.unbrandMany returns [] for empty input (mixed types)", () => {
     const MixedBrand = createBrand("MixedKey");
     expect(MixedBrand.unbrandMany([])).toEqual([]);
+  });
+});
+
+describe("vs-brand-utils: unbrand fallback coverage", () => {
+  it("unbrand returns value as-is for non-object, non-branded values (fallback branch)", () => {
+    // These hit the fallback branch in unbrand
+    expect(unbrand("SomeKey", 42 as any)).toBe(42);
+    expect(unbrand("SomeKey", null as any)).toBe(null);
+    expect(unbrand("SomeKey", undefined as any)).toBe(undefined);
+    expect(unbrand("SomeKey", "foo" as any)).toBe("foo");
   });
 });

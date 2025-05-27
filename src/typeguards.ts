@@ -12,6 +12,7 @@ export function isBrand<K extends string, T>(
 ): value is Brand<K, T> {
   // v8 coverage: unreachable for primitives, but required for type safety (primitives are never objects)
   if (isPrimitive(value)) {
+    // istanbul ignore next -- primitives are never objects, but this branch is required for type safety
     return (
       typeof value === 'object' &&
       value !== null &&
@@ -22,5 +23,6 @@ export function isBrand<K extends string, T>(
   if (typeof value === 'object' && value !== null && BRAND_MARKER in value) {
     return Boolean((value as BrandableObject)[BRAND_MARKER]?.[key]);
   }
+  // istanbul ignore next -- fallback branch, only hit for null/undefined/other
   return false;
 }

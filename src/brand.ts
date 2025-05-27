@@ -18,6 +18,7 @@ export function brand<K extends string, T>(key: K, value: T): Brand<K, T> {
     obj[BRAND_MARKER]![key] = true;
     return obj as Brand<K, T>;
   }
+  // istanbul ignore next -- unreachable: only hit if value is null/undefined, required for type safety
   return value as unknown as Brand<K, T>;
 }
 

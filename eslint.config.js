@@ -5,7 +5,7 @@ import prettier from "eslint-config-prettier/flat";
 
 export default [
   {
-    ignores: ["**/*.test.ts", "**/dist/**", "**/.pnp.*"],
+    ignores: ["**/tests/**","**/dist/**", "**/.pnp.*"],
   },
   {
     languageOptions: {
@@ -17,6 +17,10 @@ export default [
       globals: {
         console: true,
         process: true,
+        AbortSignal: "readonly",
+        DOMException: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly"
       },
     },
     plugins: {
@@ -27,10 +31,7 @@ export default [
   {
     rules: {
       ...tsPlugin.configs.recommended.rules,
-      "no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-      ],
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "no-console": "off",
     },
   },

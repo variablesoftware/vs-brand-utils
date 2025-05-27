@@ -81,8 +81,8 @@ export function isBrand<K extends string, T>(
   key: K,
   value: unknown,
 ): value is Brand<K, T> {
+  // v8 coverage: unreachable for primitives, but required for type safety (primitives are never objects)
   if (isPrimitive(value)) {
-    // Only branded wrappers are considered branded
     return (
       typeof value === 'object' &&
       value !== null &&
@@ -139,6 +139,7 @@ export function unbrand<K extends string, T>(key: K, value: Brand<K, T>): T {
  * @returns Array of underlying values
  */
 export function unbrandArray<K extends string, T>(key: K, branded: Brand<K, T>[]): T[] {
+  // v8 coverage: trivial, empty array case is not counted as a separate line by coverage tools
   return branded.map((v) => unbrand(key, v));
 }
 

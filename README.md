@@ -132,6 +132,42 @@ yarn test
 
 ---
 
+## 📦 Modular Structure (vNext)
+
+As of May 2025, the codebase is split into focused modules for maintainability and tree-shaking:
+
+- `core` – core types and internal symbols
+- `brand` – branding helpers (`brand`, `brandArray`, `brandMany`)
+- `typeguards` – type guard helpers (`isBrand`)
+- `assert` – assertion helpers (`assertBrand`)
+- `unbrand` – unbranding helpers (`unbrand`, `unbrandArray`)
+- `factory` – the `createBrand` factory for a bundled API
+
+You can import everything from the main entry point:
+
+```ts
+import { brand, isBrand, assertBrand, unbrand, createBrand } from "@variablesoftware/vs-brand-utils";
+```
+
+Or, for advanced usage and smaller bundles, import only what you need:
+
+```ts
+import { brand } from "@variablesoftware/vs-brand-utils/brand";
+import { isBrand } from "@variablesoftware/vs-brand-utils/typeguards";
+```
+
+All helpers are still available via the main package import for convenience.
+
+---
+
+## 🧪 Test Coverage & Code Structure
+
+- All helpers and edge cases are tested for 100% coverage.
+- See `src/` for the modular implementation.
+- See `tests/unit/` for split test suites by concern.
+
+---
+
 ## 🚧 Status
 
 **This package is under active development and not yet stable.**

@@ -1,6 +1,6 @@
 {
   "name": "@variablesoftware/vs-brand-utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "🛡️🧩🏷️ Nominal (branded) TypeScript types & helpers for opaque types.",
   "keywords": [
     "typescript",

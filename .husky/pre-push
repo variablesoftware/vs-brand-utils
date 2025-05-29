@@ -6,9 +6,9 @@ nvm use 22 --lts
 set -x
 
 corepack enable && corepack prepare yarn@4.9.1 --activate
-which yarn node git
-echo ${PWD}
-echo ${PATH}
+#which yarn node git
+#echo ${PWD}
+#echo ${PATH}
 #yarn lint || exit 1
 yarn lint && yarn build && yarn test || exit 1
 gitleaks dir . || exit 1

@@ -10,5 +10,5 @@ which yarn node git
 echo ${PWD}
 echo ${PATH}
 #yarn lint || exit 1
-yarn lint && yarn build:test || exit 1
+yarn lint && yarn build && yarn test || exit 1
 gitleaks dir . || exit 1

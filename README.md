@@ -14,11 +14,11 @@
 
 ---
 
-# Usage Guide
+## Usage Guide
 
 See the [Usage Guide](./docs/usage.md) for practical examples and patterns.
 
-# API Reference
+## API Reference
 
 See the [API Reference](./docs/api.md) for a summary of all exports and detailed documentation.
 
@@ -118,6 +118,7 @@ Tested using `vitest` with coverage for:
 - Edge cases and runtime behaviors
 
 Test suites are organized by concern:
+
 - `runtime-branding.test.ts`
 - `compile-type-errors.test.ts`
 - `helpers-and-factory.test.ts`

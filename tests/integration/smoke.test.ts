@@ -16,7 +16,7 @@ function run(cmd, opts = {}) {
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vs-brand-utils-smoke-'));
 const origCwd = process.cwd();
 
-const shouldRunSmoke = process.env.BRAND_SMOKE === '1';
+const shouldRunSmoke = process.env.SMOKE === '1';
 
 test.skipIf(!shouldRunSmoke)('npm package can be installed and imported (smoke test)', async () => {
   try {

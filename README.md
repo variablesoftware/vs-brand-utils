@@ -27,7 +27,7 @@ See the [API Reference](./docs/api.md) for a summary of all exports and detailed
 ## 🔧 Installation
 
 ```bash
-yarn add @variablesoftware/vs-brand-utils
+pnpm add @variablesoftware/vs-brand-utils
 ```
 
 ---
@@ -128,7 +128,7 @@ Test suites are organized by concern:
 Run tests:
 
 ```bash
-yarn test
+pnpm test
 ```
 
 ---

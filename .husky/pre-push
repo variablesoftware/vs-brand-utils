@@ -10,5 +10,5 @@ corepack enable && corepack prepare yarn@4.9.1 --activate
 #echo ${PWD}
 #echo ${PATH}
 #yarn lint || exit 1
-yarn lint && yarn build && yarn test || exit 1
+pnpm run lint && pnpm run build && pnpm run test || exit 1
 gitleaks dir . || exit 1

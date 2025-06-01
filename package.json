@@ -47,6 +47,7 @@
   },
   "scripts": {
     "build": "pnpm tsc",
+    "bump": "git commit --allow-empty -m '🛠️ fix: Empty commit message'",
     "prepare": "pnpm husky install",
     "watch:build": "pnpm tsc --watch",
     "build:release": "pnpm build; pnpm minify && ls -lah dist/",

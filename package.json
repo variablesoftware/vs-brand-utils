@@ -39,6 +39,30 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./core": {
+      "import": "./dist/core.js",
+      "types": "./dist/core.d.ts"
+    },
+    "./brand": {
+      "import": "./dist/brand.js",
+      "types": "./dist/brand.d.ts"
+    },
+    "./typeguards": {
+      "import": "./dist/typeguards.js",
+      "types": "./dist/typeguards.d.ts"
+    },
+    "./assert": {
+      "import": "./dist/assert.js",
+      "types": "./dist/assert.d.ts"
+    },
+    "./unbrand": {
+      "import": "./dist/unbrand.js",
+      "types": "./dist/unbrand.d.ts"
+    },
+    "./factory": {
+      "import": "./dist/factory.js",
+      "types": "./dist/factory.d.ts"
     }
   },
   "type": "module",

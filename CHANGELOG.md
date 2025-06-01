@@ -1,3 +1,16 @@
+## [0.0.8](https://github.com/variablesoftware/vs-brand-utils/compare/v0.0.7...v0.0.8) (2025-06-01)
+
+
+### Bug Fixes
+
+* 🚀 fix(index.ts): update export paths to use scoped package imports ([032c528](https://github.com/variablesoftware/vs-brand-utils/commit/032c528f90702f6704ca02433ad3ef409ace3026))
+* 🚀 fix(package.json): add import paths for core modules in exports ([7abc720](https://github.com/variablesoftware/vs-brand-utils/commit/7abc7202504adfe5d823cedc55b5ea681e3e2a4e))
+* 🚀 fix(package.json): remove unused scripts for cleaner configuration ([0b3af05](https://github.com/variablesoftware/vs-brand-utils/commit/0b3af055577ad69b7103d55d1b820bb9fe46a8e2))
+* 🚀 update(index.ts): change export paths to relative imports for consistency ([74e1f13](https://github.com/variablesoftware/vs-brand-utils/commit/74e1f13faacf9983f5ba4e2ac9ca292bb916e510))
+* 🚀 update(package.json): add postbuild script and pnpm workspace configuration ([c6caa8a](https://github.com/variablesoftware/vs-brand-utils/commit/c6caa8aa019d95c652ff0166050cf522b864f003))
+* 🛠️ Empty commit message ([26b9271](https://github.com/variablesoftware/vs-brand-utils/commit/26b927133775c7a70aa99597d995c545151115be))
+* 🛠️ Empty commit message ([c805fc9](https://github.com/variablesoftware/vs-brand-utils/commit/c805fc9e24b9f8865ca189902cdafa03de2f9deb))
+
 ## [0.0.7](https://github.com/variablesoftware/vs-brand-utils/compare/v0.0.6...v0.0.7) (2025-05-29)
 
 

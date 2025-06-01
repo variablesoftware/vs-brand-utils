@@ -99,7 +99,8 @@
     ":minor": "pnpm version minor",
     ":major": "pnpm version major",
     "release": "pnpm clean && pnpm build:release && git push && git push --tags && pnpm npm publish --access public",
-    "release:dry": "pnpm clean && pnpm build:release && npm pack --dry-run && pnpm pack --dry-run"
+    "release:dry": "pnpm clean && pnpm build:release && npm pack --dry-run && pnpm pack --dry-run",
+    "postbuild": "node scripts/fix-exports.mjs"
   },
   "peerDependencies": {
     "typescript": ">=4.9.0 <6.0.0"

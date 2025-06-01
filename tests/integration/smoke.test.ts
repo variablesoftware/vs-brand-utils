@@ -18,17 +18,17 @@ const origCwd = process.cwd();
 
 const shouldRunSmoke = process.env.SMOKE === '1';
 
-test.skipIf(!shouldRunSmoke)('npm package can be installed and imported (smoke test)', async () => {
+test.skipIf(!shouldRunSmoke)('pnpm package can be installed and imported (smoke test)', async () => {
   try {
     // Pack the current package
-    run('npm pack');
+    run('pnpm pack');
     const pkg = fs.readdirSync(origCwd).find(f => f.endsWith('.tgz'));
     if (!pkg) throw new Error('No package tarball found');
 
     // Init a new project in the temp dir
     process.chdir(tmpDir);
-    run('npm init -y');
-    run(`npm install ${path.join(origCwd, pkg)}`);
+    run('pnpm init');
+    run(`pnpm add ${path.join(origCwd, pkg)}`);
 
     // Try to import the package
     const pkgJson = require(path.join(origCwd, 'package.json'));

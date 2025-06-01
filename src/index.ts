@@ -12,9 +12,9 @@
  * - See README and usage docs for examples.
  */
 
-export * from '@variablesoftware/vs-brand-utils/core';
-export * from '@variablesoftware/vs-brand-utils/brand';
-export * from '@variablesoftware/vs-brand-utils/typeguards';
-export * from '@variablesoftware/vs-brand-utils/assert';
-export * from '@variablesoftware/vs-brand-utils/unbrand';
-export * from '@variablesoftware/vs-brand-utils/factory';
+export * from './core';
+export * from './brand';
+export * from './typeguards';
+export * from './assert';
+export * from './unbrand';
+export * from './factory';

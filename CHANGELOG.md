@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/variablesoftware/vs-brand-utils/compare/v0.2.0...v0.2.1) (2025-07-02)
+
+
+### Bug Fixes
+
+* **updates:** update deps. ([d81d2d8](https://github.com/variablesoftware/vs-brand-utils/commit/d81d2d8fc702dfc53154f827260915a12ea45365))
+
 # [0.2.0](https://github.com/variablesoftware/vs-brand-utils/compare/v0.1.0...v0.2.0) (2025-06-20)
 
 # [0.1.0](https://github.com/variablesoftware/vs-brand-utils/compare/v0.0.8...v0.1.0) (2025-06-19)

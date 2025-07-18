@@ -1,3 +1,5 @@
+## [0.2.5](https://github.com/variablesoftware/vs-brand-utils/compare/v0.2.4...v0.2.5) (2025-07-18)
+
 ## [0.2.4](https://github.com/variablesoftware/vs-brand-utils/compare/v0.2.3...v0.2.4) (2025-07-18)
 
 ## [0.2.3](https://github.com/variablesoftware/vs-brand-utils/compare/v0.2.2...v0.2.3) (2025-07-18)
